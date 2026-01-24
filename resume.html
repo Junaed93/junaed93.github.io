@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Junaed Khandakar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific Styles for Resume Page to make it printer friendly */
+        body.resume-page {
+            background-color: #fff;
+            color: #333;
+            padding-top: 0;
+            display: block;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .resume-header h1 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            color: #000;
+        }
+
+        .resume-item {
+            margin-bottom: 15px;
+        }
+
+        .resume-item h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 2px;
+            color: #000;
+        }
+
+        .resume-item .meta {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .resume-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .resume-item ul li {
+            margin-bottom: 3px;
+        }
+
+        .skills-list strong {
+            color: #000;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .print-btn:hover {
+            background: #000;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: none;
+            }
+
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="resume-page">
+
+    <div class="resume-container">
+        <header class="resume-header">
+            <h1>Junaed Khandakar</h1>
+            <div class="contact-info">
+                Dhaka, Bangladesh <br>
+                junaedkhandakar922@gmail.com | +880 1607-085895 | LinkedIn | GitHub/Junaed93
+            </div>
+        </header>
+
+        <section>
+            <div class="section-title">Professional Summary</div>
+            <p>Computer Science and Engineering student with practical experience in interactive game development and
+                full-stack web applications. Skilled in Unity, frontend design, and backend API integration. Seeking a
+                software internship to apply problem solving and collaborative project experience.</p>
+        </section>
+
+        <section>
+            <div class="section-title">Technical Skills</div>
+            <ul class="skills-list">
+                <li><strong>Languages:</strong> C#, JavaScript, HTML5, CSS3</li>
+                <li><strong>Frameworks & Tools:</strong> Unity, Node.js, Express, Git, GitHub, VS Code</li>
+                <li><strong>Database:</strong> MySQL</li>
+                <li><strong>Concepts:</strong> Object-Oriented Programming, UI/UX fundamentals, REST APIs</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="section-title">Projects</div>
+
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>Stranded-Skies</strong> — 2D Platformer Game</span>
+                    <span>Unity, C#</span>
+                </div>
+                <div class="meta">github.com/Junaed93/Stranded-Skies</div>
+                <ul>
+                    <li>Built a 2D platformer with singleplayer and multiplayer modes using Unity.</li>
+                    <li>Programmed responsive player movement and core gameplay mechanics.</li>
+                </ul>
+            </div>
+
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>SkillBridge</strong> — Freelance Marketplace Frontend</span>
+                    <span>HTML, CSS, JavaScript</span>
+                </div>
+                <div class="meta">github.com/Junaed93/SkillBridge</div>
+                <ul>
+                    <li>Developed responsive frontend pages for a freelance connection platform.</li>
+                    <li>Implemented interactive UI components with JavaScript.</li>
+                </ul>
+            </div>
+
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>Dhaka Alert</strong> — Crowdsourced Mapping Platform</span>
+                    <span>JavaScript, Node.js, Express, MySQL</span>
+                </div>
+                <div class="meta">github.com/MathinUthso/CrowdsourcedReportMap</div>
+                <ul>
+                    <li>Contributed to frontend and backend of a real-time report mapping system.</li>
+                    <li>Integrated RESTful APIs using Node.js and Express; used MySQL for structured data.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Extracurricular Activities</div>
+            <ul class="resume-item">
+                <li><strong>UIU Robotics</strong> — General Member (Jan 2024 - Present)</li>
+                <li><strong>UIU English Language Forum</strong> — General Member (Jan 2024 - Oct 2024)</li>
+                <li><strong>UIU Computer Club</strong> — General Member (Jan 2024 - Aug 2024)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="section-title">Education</div>
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>United International University (UIU)</strong></span>
+                    <span>Expected 2027</span>
+                </div>
+                <div>Bachelor of Science in Computer Science and Engineering</div>
+            </div>
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>Milestone College</strong></span>
+                    <span>2022</span>
+                </div>
+                <div>Higher Secondary Certificate (H.S.C.), Science, GPA: 5.00</div>
+            </div>
+            <div class="resume-item">
+                <div class="meta">
+                    <span><strong>Milestone College</strong></span>
+                    <span>2020</span>
+                </div>
+                <div>Secondary School Certificate (S.S.C.), Science, GPA: 5.00</div>
+            </div>
+        </section>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Download PDF</button>
+
+</body>
+
+</html>
