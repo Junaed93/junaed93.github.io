@@ -1,0 +1,55 @@
+[
+    {
+        "year": "2026 - Present",
+        "title": "Stranded-Skies",
+        "subtitle": "2D Unity Platformer Game",
+        "url": "https://github.com/Junaed93/Stranded-Skies",
+        "description": "2D Unity platformer with singleplayer and multiplayer modes. Features custom physics, ShaderLab effects, and real-time networking.",
+        "tags": [
+            "C#",
+            "Unity",
+            "SpringBoot"
+        ],
+        "featured": true
+    },
+    {
+        "year": "2026 - Present",
+        "title": "SkillBridge",
+        "subtitle": "Freelance Marketplace",
+        "url": "https://github.com/Junaed93/SkillBridge",
+        "description": "A modern freelance marketplace frontend. Built with semantic HTML, advanced CSS Grid/Flexbox, and vanilla JavaScript for interactivity.",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "PHP",
+            "MySQL"
+        ],
+        "featured": true
+    },
+    {
+        "year": "2026",
+        "title": "Portfolio for Nipa Alam",
+        "subtitle": "Personal Portfolio Website",
+        "url": "https://github.com/nipa922/portfolio",
+        "description": "A modern portfolio website. Built with semantic HTML, advanced CSS Grid/Flexbox, and vanilla JavaScript for interactivity.",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript"
+        ],
+        "featured": false
+    },
+    {
+        "year": "2025",
+        "title": "Dhaka Alert",
+        "subtitle": "Crowdsourced Incident Mapping",
+        "url": "https://github.com/MathinUthso/CrowdsourcedReportMap",
+        "description": "Crowdsourced incident mapping platform. Users can report local incidents which are visualized on a real-time responsive map.",
+        "tags": [
+            "API Integration",
+            "Frontend"
+        ],
+        "featured": true
+    }
+]
