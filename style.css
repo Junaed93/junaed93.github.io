@@ -1,34 +1,27 @@
-/* -------------------------------------------------------------------------- */
-/*                                 VARIABLES                                  */
-/* -------------------------------------------------------------------------- */
 :root {
-  /* Colors */
   --bg-color: #050505;
   --bg-secondary: #0f0f0f;
-  --text-main: #f0f0f0; /* Brighter for better contrast */
-  --text-muted: #b8b8b8; /* Lighter gray for better readability */
+  --text-main: #f0f0f0;
+  --text-muted: #b8b8b8;
   
-  --primary-accent: #3b82f6; /* Bright Blue */
+  --primary-accent: #3b82f6;
   --primary-glow: rgba(59, 130, 246, 0.5);
   
-  --secondary-accent: #8b5cf6; /* Violet */
+  --secondary-accent: #8b5cf6;
   --secondary-glow: rgba(139, 92, 246, 0.5);
 
   --gradient-main: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
 
-  /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 10px;
 
-  /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
 
-  /* Layout */
   --max-width: 1200px;
   --header-height: 70px;
   --radius-sm: 8px;
@@ -36,9 +29,6 @@
   --transition: all 0.3s ease;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   RESET                                    */
-/* -------------------------------------------------------------------------- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -58,11 +48,10 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   
-  /* Sticky Footer & Fixed Header Layout */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: var(--header-height); /* Prevent content hiding behind header */
+  padding-top: var(--header-height);
 }
 
 a {
@@ -121,14 +110,11 @@ main {
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   HEADER                                   */
-/* -------------------------------------------------------------------------- */
 header {
   height: var(--header-height);
   position: fixed;
   top: 0;
-  left: 0; /* Ensure explicitly set */
+  left: 0;
   width: 100%;
   background: rgba(5, 5, 5, 0.8);
   backdrop-filter: blur(10px);
@@ -197,7 +183,6 @@ header nav a:hover::after {
   width: 100%;
 }
 
-/* Mobile Navigation */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -216,7 +201,7 @@ header nav a:hover::after {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
-    z-index: 2000; /* Ensure above everything */
+    z-index: 2000;
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -233,57 +218,61 @@ header nav a:hover::after {
 
   .nav-links {
     position: fixed;
-    right: -100%;
-    top: 0; /* Cover full height including header area if needed, or adjust top offset */
-    height: 100vh;
-    width: 70%; /* Or 100% depending on preference */
-    max-width: 300px;
-    background: rgba(5, 5, 5, 0.95); /* Nearly opaque background */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    top: calc(var(--header-height) + 10px);
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-lg);
-    transition: 0.4s ease-in-out;
-    border-left: 1px solid var(--glass-border);
+    gap: var(--spacing-md);
+    transform: translateY(-20px);
+    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
     z-index: 1500;
-    padding-top: var(--header-height); /* Offset for header if visible */
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .nav-links.active {
-    right: 0;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
   header nav a {
-    font-size: 1.2rem;
-    padding: 1rem 0;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+  
+  header nav.nav-flex {
+      padding: 0 1rem;
   }
 }
 
-/* Revert specific touch padding for very small screens if sidebar is active */
 @media (max-width: 600px) {
     header nav a {
-        font-size: 1.1rem; /* Slightly adjust for mobile sidebar */
-        padding: 1rem 0; /* Resetting the specific padding from previous step as we are now in list mode */
+        font-size: 1.1rem;
+        padding: 1rem 0;
     }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                    HERO                                    */
-/* -------------------------------------------------------------------------- */
 #hero {
-  min-height: 80vh; /* Reduced from 100vh since we have padding-top on body now, keeps it centered */
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  /* padding-top: var(--header-height); REMOVED - Body handles this */
 }
 
-/* Background Glow Effect */
 #hero::before {
   content: '';
   position: absolute;
@@ -312,7 +301,7 @@ header nav a:hover::after {
 }
 
 .hero-image {
-  flex: 0 0 350px; /* Base width */
+  flex: 0 0 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -331,11 +320,10 @@ header nav a:hover::after {
   z-index: 1;
 }
 
-/* Enhanced Animation for Mobile */
 @media (max-width: 768px) {
     .profile-img {
         animation: float 6s ease-in-out infinite, pulse-glow 3s infinite alternate;
-        border-color: var(--secondary-accent); /* Change border color to match the glow */
+        border-color: var(--secondary-accent);
     }
 }
 
@@ -352,7 +340,7 @@ header nav a:hover::after {
 .profile-img:hover {
   border-color: var(--primary-accent);
   box-shadow: 0 0 60px rgba(59, 130, 246, 0.6);
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);
 }
 
 #hero h1 {
@@ -363,7 +351,7 @@ header nav a:hover::after {
 }
 
 #hero h1 span {
-  display: inline-block; /* Required for typing effect block display context */
+  display: inline-block;
 }
 
 #hero p {
@@ -371,14 +359,11 @@ header nav a:hover::after {
   color: var(--text-muted);
   margin-bottom: var(--spacing-sm);
   max-width: 600px;
-  /* margin-left: auto; REMOVED center alignment */
-  /* margin-right: auto; REMOVED center alignment */
 }
 
 .tags {
   display: flex;
   gap: var(--spacing-sm);
-  /* justify-content: center; REMOVED center alignment */
   margin-top: var(--spacing-md);
   flex-wrap: wrap;
 }
@@ -392,7 +377,6 @@ header nav a:hover::after {
   color: var(--text-muted);
 }
 
-/* Social Links */
 .social-links {
   display: flex;
   gap: var(--spacing-sm);
@@ -414,7 +398,6 @@ header nav a:hover::after {
   gap: 0.5rem;
 }
 
-/* Resume button with text */
 .social-btn.resume {
   width: auto;
   padding: 0 1.5rem;
@@ -427,7 +410,6 @@ header nav a:hover::after {
   font-size: 0.95rem;
 }
 
-/* All social buttons with text */
 .social-btn.linkedin,
 .social-btn.github {
   width: auto;
@@ -464,10 +446,6 @@ header nav a:hover::after {
   box-shadow: 0 10px 30px var(--primary-glow);
 }
 
-
-/* -------------------------------------------------------------------------- */
-/*                                  SECTIONS                                  */
-/* -------------------------------------------------------------------------- */
 section h2 {
   font-size: 2rem;
   margin-bottom: var(--spacing-md);
@@ -486,9 +464,6 @@ section h2 {
   font-size: 1.1rem;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   SKILLS                                   */
-/* -------------------------------------------------------------------------- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -510,9 +485,6 @@ section h2 {
   color: var(--primary-accent);
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                  PROJECTS                                  */
-/* -------------------------------------------------------------------------- */
 #projects-page h1 {
   text-align: center;
   margin-top: var(--spacing-lg);
@@ -557,9 +529,6 @@ section h2 {
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   CONTACT                                  */
-/* -------------------------------------------------------------------------- */
 #contact-form {
   max-width: 500px;
   margin: 0 auto;
@@ -572,7 +541,7 @@ input, textarea {
   width: 100%;
   padding: 1rem;
   background: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.15); /* More visible border */
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-sm);
   color: var(--text-main);
   font-family: inherit;
@@ -581,7 +550,7 @@ input, textarea {
 }
 
 input::placeholder, textarea::placeholder {
-  color: var(--text-muted); /* Better placeholder visibility */
+  color: var(--text-muted);
   opacity: 0.8;
 }
 
@@ -593,7 +562,7 @@ input:focus, textarea:focus {
 
 button {
   padding: 1rem 2rem;
-  background: var(--primary-accent); /* Fallback */
+  background: var(--primary-accent);
   background: var(--gradient-main);
   color: white;
   border: none;
@@ -617,9 +586,6 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   FOOTER                                   */
-/* -------------------------------------------------------------------------- */
 footer {
   text-align: center;
   padding: var(--spacing-md);
@@ -629,7 +595,7 @@ footer {
   border-top: 1px solid var(--glass-border);
 }
 
-@media (max-width: 900px) { /* Tablet Breakpoint */
+@media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -637,7 +603,7 @@ footer {
   }
 
   .hero-image {
-    order: -1; /* Image Top */
+    order: -1;
     flex: 0 0 auto;
   }
   
@@ -647,7 +613,7 @@ footer {
   }
 
   #hero h1 {
-    font-size: 3rem; /* Slightly smaller for tablets */
+    font-size: 3rem;
   }
 
   #hero p {
@@ -661,22 +627,36 @@ footer {
 }
 
 @media (max-width: 600px) {
-    /* Reduce global section padding for mobile */
     .section-padding {
         padding: var(--spacing-md) 0;
     }
 
     #hero h1 { 
         font-size: 2.2rem;
+        word-wrap: break-word;
+        line-height: 1.3;
+    }
+    
+    #hero .typing-effect {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+        display: inline-block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
     }
 
-    /* Adjust profile image size for mobile */
+    #hero .lastName {
+        display: block;
+        margin-top: -10px;
+    }
+
     .profile-img {
         width: 200px;
         height: 200px;
     }
 
-    /* Stack project grid items */
     .projects-container {
         grid-template-columns: 1fr;
     }
@@ -686,11 +666,6 @@ footer {
     #hero h1 { font-size: 2.5rem; }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                 ANIMATIONS                                 */
-/* -------------------------------------------------------------------------- */
-
-/* Reveal Utility */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -702,17 +677,14 @@ footer {
   transform: translateY(0);
 }
 
-/* Stagger Delays */
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
 .delay-300 { transition-delay: 0.3s; }
 
-/* Floating Elements */
 .floating {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Typing Effect */
 .typing-effect {
   display: inline-block;
   overflow: hidden;
@@ -729,7 +701,6 @@ footer {
   vertical-align: bottom;
 }
 
-/* Keyframes */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -761,10 +732,6 @@ footer {
   from, to { border-color: transparent; }
   50% { border-color: var(--primary-accent); }
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                ABOUT & RESUME                              */
-/* -------------------------------------------------------------------------- */
 
 .about-content {
   display: flex;
@@ -844,7 +811,6 @@ footer {
   opacity: 1;
 }
 
-/* Response fix for Education years */
 @media (max-width: 600px) {
   .edu-item p {
     flex-direction: column;
@@ -852,11 +818,6 @@ footer {
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                             ABOUT PAGE STYLES                              */
-/* -------------------------------------------------------------------------- */
-
-/* Hero Text Only Variant */
 .hero-text-only {
   justify-content: center;
   text-align: center;
@@ -876,7 +837,6 @@ footer {
   margin-right: auto;
 }
 
-/* About Page Content */
 .about-page-content {
   display: grid;
   grid-template-columns: 350px 1fr;
@@ -954,7 +914,6 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-/* Section Heading Icons */
 .about-bio h2 i,
 .about-skills h2 i,
 .about-education h2 i,
@@ -962,7 +921,6 @@ footer {
   margin-right: 0.5rem;
 }
 
-/* About Page Social Links */
 .about-social-links {
   display: flex;
   gap: var(--spacing-sm);
@@ -970,7 +928,6 @@ footer {
   margin-top: var(--spacing-md);
 }
 
-/* Certificate Links */
 .cert-link {
   color: var(--primary-accent);
   text-decoration: underline;
@@ -982,7 +939,6 @@ footer {
   color: var(--secondary-accent);
 }
 
-/* About Actions */
 .about-actions {
   display: flex;
   gap: var(--spacing-sm);
@@ -991,7 +947,6 @@ footer {
   justify-content: center;
 }
 
-/* Secondary Button */
 .btn-secondary {
   display: inline-block;
   padding: 1rem 2rem;
@@ -1010,7 +965,6 @@ footer {
   transform: translateY(-3px);
 }
 
-/* Responsive About Page */
 @media (max-width: 900px) {
   .about-page-content {
     grid-template-columns: 1fr;
@@ -1043,10 +997,6 @@ footer {
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                              PROJECTS TIMELINE                             */
-/* -------------------------------------------------------------------------- */
-
 .timeline {
   position: relative;
   max-width: 1000px;
@@ -1054,7 +1004,6 @@ footer {
   padding: var(--spacing-lg) 0;
 }
 
-/* Vertical Line */
 .timeline::before {
   content: '';
   position: absolute;
@@ -1072,19 +1021,16 @@ footer {
   padding: var(--spacing-md);
 }
 
-/* Left Side Items */
 .timeline-item.left {
   left: 0;
   padding-right: calc(var(--spacing-lg) + 10px);
 }
 
-/* Right Side Items */
 .timeline-item.right {
   left: 50%;
   padding-left: calc(var(--spacing-lg) + 10px);
 }
 
-/* Timeline Dot */
 .timeline-dot {
   position: absolute;
   width: 16px;
@@ -1106,7 +1052,6 @@ footer {
   left: -8px;
 }
 
-/* Timeline Card */
 .timeline-card {
   position: relative;
   background: rgba(15, 15, 15, 0.8);
@@ -1122,7 +1067,6 @@ footer {
   box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Timeline Badge (Year) */
 .timeline-badge {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -1135,7 +1079,6 @@ footer {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Timeline Card Title */
 .timeline-card h3 {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
@@ -1162,7 +1105,6 @@ footer {
   opacity: 0.8;
 }
 
-/* Timeline Subtitle */
 .timeline-subtitle {
   display: block;
   font-size: 0.95rem;
@@ -1171,7 +1113,6 @@ footer {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Timeline Card Description */
 .timeline-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -1179,12 +1120,10 @@ footer {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Timeline Card Tags */
 .timeline-card .tags {
   margin-top: var(--spacing-sm);
 }
 
-/* Responsive Timeline */
 @media (max-width: 768px) {
   .timeline::before {
     left: 20px;
@@ -1224,7 +1163,7 @@ footer {
 
     .timeline-dot,
     .timeline-item.left .timeline-dot,
-    .timeline-item.right .timeline-dot { /* Use specific selectors to override previous queries */
+    .timeline-item.right .timeline-dot {
         left: 7px;
         width: 12px;
         height: 12px;
