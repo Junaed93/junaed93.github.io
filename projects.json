@@ -1,23 +1,37 @@
 [
     {
-        "year": "2026 - Present",
+        "year": "2026",
+        "title": "Stranded-Skies Launcher",
+        "subtitle": "2D Unity Platformer Game Launcher",
+        "url": "https://github.com/Junaed93/Stranded-Skies-Launcher",
+        "description": "A feature rich game launcher for Stranded-Skies. Features secure JWT authentication, real-time voice and text chat, and a responsive design built with Spring Boot and modern web technologies.",
+        "tags": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "WebRTC",
+            "Spring Boot"
+        ],
+        "featured": true
+    },
+    {
+        "year": "2026",
         "title": "Stranded-Skies",
         "subtitle": "2D Unity Platformer Game",
         "url": "https://github.com/Junaed93/Stranded-Skies",
         "description": "2D Unity platformer with singleplayer and multiplayer modes. Features custom physics, ShaderLab effects, and real-time networking.",
         "tags": [
             "C#",
-            "Unity",
-            "SpringBoot"
+            "Unity"
         ],
         "featured": true
     },
     {
-        "year": "2026 - Present",
+        "year": "2026",
         "title": "SkillBridge",
         "subtitle": "Freelance Marketplace",
         "url": "https://github.com/Junaed93/SkillBridge",
-        "description": "A modern freelance marketplace frontend. Built with semantic HTML, advanced CSS Grid/Flexbox, and vanilla JavaScript for interactivity.",
+        "description": "A modern freelance marketplace built with HTML5, CSS3, JavaScript, PHP, and MySQL.",
         "tags": [
             "HTML5",
             "CSS3",
