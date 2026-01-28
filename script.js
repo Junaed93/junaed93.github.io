@@ -6,8 +6,28 @@ const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 
 if (form && typeof emailjs !== 'undefined') {
+    let lastSent = localStorage.getItem('lastSentTime');
+
     form.addEventListener("submit", function(e) {
         e.preventDefault();
+        
+        const now = Date.now();
+        if (lastSent && (now - lastSent < 60000)) {
+             status.textContent = `Please wait ${Math.ceil((60000 - (now - lastSent)) / 1000)}s before sending another details.`;
+             status.style.color = "#ef4444";
+             return;
+        }
+
+        const emailInput = form.querySelector('input[name="email"]');
+        const email = emailInput.value.trim();
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!emailRegex.test(email)) {
+            status.textContent = "Please enter a valid email address.";
+            status.style.color = "#ef4444";
+            return;
+        }
+
         status.textContent = "Sending...";
         status.style.color = "#8b5cf6";
         
@@ -16,6 +36,8 @@ if (form && typeof emailjs !== 'undefined') {
                 status.textContent = "Message sent successfully!";
                 status.style.color = "#10b981";
                 form.reset();
+                localStorage.setItem('lastSentTime', Date.now());
+                lastSent = Date.now();
             }, (err) => {
                 status.textContent = "Failed to send message. Try again.";
                 status.style.color = "#ef4444";
