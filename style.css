@@ -198,17 +198,76 @@ header nav a:hover::after {
 }
 
 /* Mobile Navigation */
-@media (max-width: 600px) {
-  header nav {
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 2000; /* Ensure above everything */
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0; /* Cover full height including header area if needed, or adjust top offset */
+    height: 100vh;
+    width: 70%; /* Or 100% depending on preference */
+    max-width: 300px;
+    background: rgba(5, 5, 5, 0.95); /* Nearly opaque background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    transition: 0.4s ease-in-out;
+    border-left: 1px solid var(--glass-border);
+    z-index: 1500;
+    padding-top: var(--header-height); /* Offset for header if visible */
+  }
+
+  .nav-links.active {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
 
   header nav a {
-    font-size: 0.85rem;
-    padding: 0.25rem 0;
+    font-size: 1.2rem;
+    padding: 1rem 0;
   }
+}
+
+/* Revert specific touch padding for very small screens if sidebar is active */
+@media (max-width: 600px) {
+    header nav a {
+        font-size: 1.1rem; /* Slightly adjust for mobile sidebar */
+        padding: 1rem 0; /* Resetting the specific padding from previous step as we are now in list mode */
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -268,6 +327,26 @@ header nav a:hover::after {
   box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
   animation: float 6s ease-in-out infinite;
   transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced Animation for Mobile */
+@media (max-width: 768px) {
+    .profile-img {
+        animation: float 6s ease-in-out infinite, pulse-glow 3s infinite alternate;
+        border-color: var(--secondary-accent); /* Change border color to match the glow */
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.7), 0 0 80px rgba(139, 92, 246, 0.5);
+        border-color: var(--primary-accent);
+    }
 }
 
 .profile-img:hover {
@@ -567,6 +646,10 @@ footer {
     height: 250px;
   }
 
+  #hero h1 {
+    font-size: 3rem; /* Slightly smaller for tablets */
+  }
+
   #hero p {
     margin-left: auto;
     margin-right: auto;
@@ -575,6 +658,28 @@ footer {
   .tags {
     justify-content: center;
   }
+}
+
+@media (max-width: 600px) {
+    /* Reduce global section padding for mobile */
+    .section-padding {
+        padding: var(--spacing-md) 0;
+    }
+
+    #hero h1 { 
+        font-size: 2.2rem;
+    }
+
+    /* Adjust profile image size for mobile */
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Stack project grid items */
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1103,4 +1208,26 @@ footer {
     left: 12px;
     right: auto;
   }
+}
+
+@media (max-width: 480px) {
+    .timeline::before {
+        left: 15px;
+    }
+
+    .timeline-item, 
+    .timeline-item.left, 
+    .timeline-item.right {
+        padding-left: 3rem; 
+        padding-right: 0;
+    }
+
+    .timeline-dot,
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot { /* Use specific selectors to override previous queries */
+        left: 7px;
+        width: 12px;
+        height: 12px;
+        border-width: 2px;
+    }
 }

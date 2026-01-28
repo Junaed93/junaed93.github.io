@@ -140,4 +140,36 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSkills();
     
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Sidebar Logic
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (hamburger && navLinks) {
+        // Toggle Sidebar
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.classList.toggle('no-scroll'); // Optional: prevent body scrolling
+        });
+
+        // Close sidebar when clicking a link
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Close sidebar when clicking outside (on the main content)
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    }
 });
