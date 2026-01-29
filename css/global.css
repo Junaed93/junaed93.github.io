@@ -32,6 +32,7 @@
 html {
   scroll-behavior: smooth;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -266,7 +267,7 @@ header nav a:hover::after {
     right: 10px;
     width: auto;
     height: auto;
-    background: rgba(5, 5, 5, 0.9);
+    background: rgba(5, 5, 5, 0.95); /* Increased opacity for better contrast */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
@@ -289,8 +290,11 @@ header nav a:hover::after {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
   header nav a {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+    font-size: 1.2rem; /* Increased font size */
+    padding: 1rem 0; /* Increased touch target */
+    color: var(--text-main); /* Brighter text color */
+    width: 100%;
+    text-align: center;
   }
   header nav.nav-flex {
       padding: 0 1rem;
