@@ -437,19 +437,7 @@ footer {
   box-shadow: 0 5px 15px var(--primary-glow);
 }
 
-.visitor-count {
-  font-weight: 600;
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: rgba(59, 130, 246, 0.1);
-  border-radius: 4px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-}
 
-.visitor-count span {
-    color: var(--primary-accent);
-}
 
 .contact-info p {
   display: flex;
