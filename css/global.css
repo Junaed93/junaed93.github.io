@@ -361,10 +361,111 @@ button:hover {
 }
 
 footer {
-  text-align: center;
-  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  padding-top: var(--spacing-lg);
   margin-top: auto; 
   color: var(--text-muted);
-  font-size: 0.9rem;
   border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-section h3 {
+  color: var(--text-main);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-section p {
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: var(--text-muted);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: var(--primary-accent);
+  transform: translateX(5px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  background: var(--primary-accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+.visitor-count {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.visitor-count span {
+    color: var(--primary-accent);
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info p i {
+    color: var(--primary-accent);
+    width: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  margin-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
 }

@@ -157,7 +157,22 @@ async function loadSkills() {
     }
 }
 
+function updateVisitorCount() {
+    const counterElement = document.getElementById('visitor-count');
+    if (counterElement) {
+        let count = localStorage.getItem('visitorCount');
+        if (!count) {
+            count = 0;
+        } else {
+            count = parseInt(count) + 1;
+        }
+        localStorage.setItem('visitorCount', count);
+        counterElement.textContent = count;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    updateVisitorCount();
     loadProjects();
     loadSkills();
     
